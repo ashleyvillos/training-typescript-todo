@@ -14,34 +14,6 @@ UserRouter.post('/user/login', async (req: Request, res: Response) => {
     res.status(response.status).send(response)
 })
 
-// UserRouter.get('/user', async (req: Request, res: Response) => {
-//     if ('authorization' in req.headers) {
-//         let authenticate = await AuthService.verify(req.headers.authorization?.split(' ')[1] as string)
-//         if (authenticate.status == 200) {
-//             let response = await UserController.getAllUsers(req.query)
-//             res.status(response.status).send(response)
-//         } else {
-//             res.status(authenticate.status).send(authenticate)
-//         }
-//     } else {
-//         res.status(200).send({ message: "Authorization Error" })
-//     }
-// })
-
-// UserRouter.get('/user/:id', async (req: Request, res: Response) => {
-//     if ('authorization' in req.headers) {
-//         let authenticate = await AuthService.verify(req.headers.authorization?.split(' ')[1] as string)
-//         if (authenticate.status == 200) {
-//             let response = await UserController.getOneUser({ id: parseInt(req.params.id) })
-//             res.status(response.status).send(response)
-//         } else {
-//             res.status(authenticate.status).send(authenticate)
-//         }
-//     } else {
-//         res.status(200).send({ message: "Authorization Error" })
-//     }
-// })
-
 UserRouter.get('/user/info/:id', async (req: Request, res: Response) => {
     if ('authorization' in req.headers) {
         let authenticate = await AuthService.verify(req.headers.authorization?.split(' ')[1] as string)
